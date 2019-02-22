@@ -12,27 +12,37 @@ function flipCard() {
         // clicked first time
         hasFlippedCard = true;
         firstCard = this;
-    } else {
+
+        return;
+    }
         // clicked second time
         hasFlippedCard = false;
         secondCard = this;
 
-        // checking if cards match
-        if (firstCard.dataset.framework === secondCard.dataset.framework) {
-
-            // if it's a match...
-            firstCard.removeEventListener('click', flipCard);
-            secondCard.removeEventListener('click', flipCard);
-        } else {
-            // if it's not a match...
-            setTimeout(() => {
-                firstCard.classList.remove('flip');
-                secondCard.classList.remove('flip');
-            }, 1500);
-        }
-    
+        checkForMatch();
     }
    
+
+function checkForMatch() {
+        // put terniary operator to refactor the if else code into one line
+        // checking if cards match
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+    // if it's a match...
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+}
+
+function unflipCards() {
+    // if it's not a match...
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+    }, 1500);
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
