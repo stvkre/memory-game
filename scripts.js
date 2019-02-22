@@ -2,9 +2,12 @@ const cards = document.querySelectorAll('.memory-card');
 
 // checking if memory card is clicked
 let hasFlippedCard = false;
+let lockBoard = false;
 let firstCard, secondCard;
 
 function flipCard() {
+    if (lockBoard) return;
+    //
     this.classList.add('flip');
 
     // setting card click status
@@ -14,6 +17,7 @@ function flipCard() {
         firstCard = this;
 
         return;
+        //
     }
         // clicked second time
         hasFlippedCard = false;
@@ -38,11 +42,15 @@ function disableCards() {
 }
 
 function unflipCards() {
+    lockBoard = true;
     // if it's not a match...
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+
+    lockBoard = false;
     }, 1500);
+
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
