@@ -39,6 +39,10 @@ img {
 
 }
 
+.memory-card.flip {
+	transform: rotateX(180deg);
+}
+
 
 
 .front-face,
