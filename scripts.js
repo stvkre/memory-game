@@ -17,7 +17,9 @@ function flipCard() {
         hasFlippedCard = false;
         secondCard = this;
 
-    
+        // checking which card has been clicked
+        console.log(firstCard.dataset.framework);
+        console.log(secondCard.dataset.framework);
     }
    
 }
