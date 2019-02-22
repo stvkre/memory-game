@@ -20,6 +20,7 @@ img {
 	display: flex;
 	margin: auto;
 	flex-wrap: wrap;
+    perspective: 1000px;
 
 }
 
@@ -29,6 +30,8 @@ img {
 	margin: 5px;
 	position: relative;
 	transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 
 /*adding click action to class*/
@@ -40,7 +43,7 @@ img {
 }
 
 .memory-card.flip {
-	transform: rotateX(180deg);
+	transform: rotateY(180deg);
 }
 
 
