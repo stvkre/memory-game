@@ -17,9 +17,14 @@ function flipCard() {
         hasFlippedCard = false;
         secondCard = this;
 
-        // checking which card has been clicked
-        console.log(firstCard.dataset.framework);
-        console.log(secondCard.dataset.framework);
+        // checking if cards match
+        if (firstCard.dataset.framework === secondCard.dataset.framework) {
+
+        // if it's a match...
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+        }
+    
     }
    
 }
