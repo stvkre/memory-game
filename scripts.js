@@ -20,9 +20,13 @@ function flipCard() {
         // checking if cards match
         if (firstCard.dataset.framework === secondCard.dataset.framework) {
 
-        // if it's a match...
+            // if it's a match...
             firstCard.removeEventListener('click', flipCard);
             secondCard.removeEventListener('click', flipCard);
+        } else {
+            // if it's not a match...
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
         }
     
     }
